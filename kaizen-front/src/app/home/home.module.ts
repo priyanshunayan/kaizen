@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomepageComponent } from './homepage/homepage.component';
-
+import {MatButtonModule} from '@angular/material/button';
 @NgModule({
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    MatButtonModule
   ],
   declarations: [HomepageComponent]
 })

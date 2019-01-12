@@ -1,0 +1,22 @@
+.home {
+    background-color:#181743;
+    color: white;
+    font-weight: 700;
+    height: 100vh;
+    padding-left: 1em;
+    display: flex;
+    align-items: center;
+}
+.header {
+    margin-top: 0;
+}
+.signup-btn{
+    color: balck;
+    font-weight: 500;
+}
+.login-btn {
+    border-color: white;
+}
+.button-group button {
+    margin-right:1em;
+}
