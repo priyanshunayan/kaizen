@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from '../../auth.service';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -11,7 +12,7 @@ export class SignupComponent implements OnInit {
     lastName: new FormControl(''),
   }); */
   profileForm = this.fb.group({
-    firstName: ['', Validators.required],
+    name: ['', Validators.required],
     username: ['', Validators.required],
     email: [''],
     password: [null, Validators.compose([Validators.required, Validators.minLength(6)])]
@@ -20,8 +21,13 @@ export class SignupComponent implements OnInit {
     // TODO: Use EventEmitter with form value
     console.warn(this.profileForm.value);
   }
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private authService: AuthService) {}
   ngOnInit() {
   }
-
+  registerUsers() {
+    console.warn(this.profileForm.value);
+    this.authService.registerUsers(this.profileForm.value).subscribe(res => {
+      console.log(`Users Registered with Value ${this.profileForm.value}`);
+    });
+  }
 }

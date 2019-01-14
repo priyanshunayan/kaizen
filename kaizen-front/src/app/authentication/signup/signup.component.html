@@ -3,13 +3,13 @@
     <h2> <a href="#" class="header-link">Kaizen </a> </h2>
 </div>
 <div class="form">
-  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="profileForm" (ngSubmit)="registerUsers()">
     <label>
       <span class="width-20"> Full Name:</span>
       <br>
-        <input type="text" formControlName="firstName" placeholder="Jon Doe" required>
+        <input type="text" formControlName="name" placeholder="Jon Doe" required>
     </label>
-    <div class="alert" *ngIf = "!profileForm.controls['firstName'].valid && profileForm.controls['firstName'].touched">
+    <div class="alert" *ngIf = "!profileForm.controls['name'].valid && profileForm.controls['name'].touched">
         This is required.
     </div>
     <br>

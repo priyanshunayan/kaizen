@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
+import { AuthService } from '../auth.service';
 @NgModule({
   imports: [
     CommonModule,
@@ -13,6 +14,7 @@ import {MatButtonModule} from '@angular/material/button';
     ReactiveFormsModule,
     MatButtonModule
   ],
-  declarations: [LoginComponent, SignupComponent]
+  declarations: [LoginComponent, SignupComponent],
+  providers: [AuthService]
 })
 export class AuthenticationModule { }
