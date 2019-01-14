@@ -1,3 +1,29 @@
-<p>
-  login works!
-</p>
+<div class="signup-page">
+  <div class="header">
+    <h2> <a href="#" class="header-link"> Kaizen </a></h2>
+  </div>
+  <div class="form">
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <label>
+        <span class="width-20"> Email</span>
+        <br>
+        <input type="text" formControlName="email" placeholder="test@something.com" required email>
+      </label>
+      <div class="alert" *ngIf="!profileForm.controls['email'].valid && profileForm.controls['email'].touched">
+        Email is incorrect.
+      </div>
+      <br>
+      <label>
+        <span class="width-20"> Password</span>
+        <br>
+        <input type="password" formControlName="password" placeholder="password" required>
+      </label>
+      <div class="alert" *ngIf="!profileForm.controls['password'].valid && profileForm.controls['password'].touched">
+        Please enter correct password
+      </div>
+      <br>
+      <button type="submit"  [disabled]="!profileForm.valid" class="btn-signup" mat-raised-button>Login</button>
+    <button type="button" class="btn-signup" mat-stroked-button>Back</button>
+    </form>
+  </div>
+</div>

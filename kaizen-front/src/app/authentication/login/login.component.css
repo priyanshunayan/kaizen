@@ -1,0 +1,36 @@
+.signup-page {
+    background-color: #181743;
+}
+.header {
+    color:white;
+    text-align: center;
+    letter-spacing: 1px;
+    padding-top: 0.5em;
+}
+.header-link {
+    color: white;
+    text-decoration: none;
+}
+.header h2 {
+    margin-top: 0em;
+}
+.form {
+    display: flex;
+    padding-top: 1em;
+    height: 100vh;
+    padding-left:1em;
+    background-color: #181743;
+    color:white;
+}
+.btn-signup {
+    margin-top: 1em;
+    border: 1px solid white;
+    margin-right: 1em;
+}
+input {
+    border-radius: 5px;
+    border: 1px solid white;
+    padding: 0.5em;
+    margin-top:0.5em;
+    margin-bottom:1em;
+}

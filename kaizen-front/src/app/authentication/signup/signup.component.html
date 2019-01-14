@@ -1,26 +1,47 @@
-<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-  <label>
-    First Name:
-    <input type="text" formControlName="firstName" required>
-  </label>
-  <br>
-  <label>
-    Last Name:
-    <input type="text" formControlName="lastName">
-  </label>
-  <br>
-  <label>
-    Email:
-    <input type="text" formControlName="email" required>
-  </label>
-  <br>
-  <label>
-    Password:
-    <input type="password" formControlName="password" required>
-  </label>
-  <br>
-  <button type="submit" [disabled]="!profileForm.valid">Sign Up</button>
-</form>
-<p>
-  Form Status: {{ profileForm.status }}
-</p>
+<div class="signup-page">
+<div class="header">
+    <h2> <a href="#" class="header-link">Kaizen </a> </h2>
+</div>
+<div class="form">
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <label>
+      <span class="width-20"> Full Name:</span>
+      <br>
+        <input type="text" formControlName="firstName" placeholder="Jon Doe" required>
+    </label>
+    <div class="alert" *ngIf = "!profileForm.controls['firstName'].valid && profileForm.controls['firstName'].touched">
+        This is required.
+    </div>
+    <br>
+    <label>
+        <span class="width-20"> Username</span>
+        <br>
+          <input type="text" formControlName="username" placeholder="Jon" required>
+      </label>
+      <div class="alert" *ngIf = "!profileForm.controls['username'].valid && profileForm.controls['username'].touched">
+          This is required.
+      </div>
+      <br>
+    <label>
+      <span class="width-20"> Email: </span>
+      <br>
+        <input type="text" formControlName="email" placeholder="email@something.com" required email>
+    </label>
+    <div class="alert" *ngIf = "!profileForm.controls['email'].valid && profileForm.controls['email'].touched">
+       Your email address is incorrect
+    </div>
+    <br>
+    <label>
+      <span class="width-20"> Password: </span>
+      <br>
+        <input type="password" formControlName="password" placeholder="password" required>
+    </label>
+    <div class="alert" *ngIf = "!profileForm.controls['password'].valid && profileForm.controls['password'].touched">
+        Password must be atleast 6 letters long
+    </div>
+    <br>
+    <button type="submit"  [disabled]="!profileForm.valid" class="btn-signup" mat-raised-button>Sign Up</button>
+    <button type="button" class="btn-signup" mat-stroked-button>Back</button>
+  </form>
+</div>
+</div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl,  FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -12,9 +12,9 @@ export class SignupComponent implements OnInit {
   }); */
   profileForm = this.fb.group({
     firstName: ['', Validators.required],
-    lastName: [''],
+    username: ['', Validators.required],
     email: [''],
-    password: ['']
+    password: [null, Validators.compose([Validators.required, Validators.minLength(6)])]
   });
   onSubmit() {
     // TODO: Use EventEmitter with form value
