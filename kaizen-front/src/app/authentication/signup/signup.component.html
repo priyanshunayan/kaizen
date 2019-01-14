@@ -1,3 +1,26 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <label>
+    First Name:
+    <input type="text" formControlName="firstName" required>
+  </label>
+  <br>
+  <label>
+    Last Name:
+    <input type="text" formControlName="lastName">
+  </label>
+  <br>
+  <label>
+    Email:
+    <input type="text" formControlName="email" required>
+  </label>
+  <br>
+  <label>
+    Password:
+    <input type="password" formControlName="password" required>
+  </label>
+  <br>
+  <button type="submit" [disabled]="!profileForm.valid">Sign Up</button>
+</form>
 <p>
-  signup works!
+  Form Status: {{ profileForm.status }}
 </p>
