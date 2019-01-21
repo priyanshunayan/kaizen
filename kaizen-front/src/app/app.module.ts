@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {AuthService } from '../app/auth.service';
 import { AuthGuard } from './auth-guard.service';
-
+import { GoogleBooksService } from './google-books.service';
 @NgModule({
   declarations: [
     AppComponent
@@ -17,7 +17,7 @@ import { AuthGuard } from './auth-guard.service';
     BrowserAnimationsModule,
     HttpClientModule
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard, GoogleBooksService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

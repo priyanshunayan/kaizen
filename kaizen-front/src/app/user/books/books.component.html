@@ -1,3 +1,20 @@
-<p>
-  books works!
-</p>
+<header class="header">
+<h2>
+  Kaizen
+</h2>
+</header>
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Search Books" id="search-box">
+  </mat-form-field>
+
+  <div>
+    <ul *ngFor = 'let books of booksArray'>
+      <li> 
+        <p>{{books.title}}</p>
+        <img *ngIf = "books.imageLinks.smallThumbnail" src="{{books.imageLinks.smallThumbnail}}" alt="">
+        <br>
+        {{books.subtitle}}
+      </li>
+     </ul>
+  </div>
