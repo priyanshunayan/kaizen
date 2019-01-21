@@ -1,17 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';\
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  const token;
+  token;
+  httpOptions;
   constructor(private http: HttpClient) { }
-  const httpOptions = {
-    headers: new HttpHeaders({
-      'Authorization': `Bearer ${this.token.token}`,
-    })
-  };
   registerUsers(user) {
     return this.http.post('http://localhost:3000/user/signup', user);
   }
@@ -21,5 +17,18 @@ export class AuthService {
   getToken() {
     this.token = JSON.parse(localStorage.getItem('Kaizen'));
     console.log(`the token is ${this.token.token}`);
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${this.token.token}`,
+      })
+    };
+  }
+  isAuthenticated() {
+    this.token = JSON.parse(localStorage.getItem('Kaizen'));
+    if (this.token.token != null) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
