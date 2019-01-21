@@ -27,7 +27,10 @@ export class SignupComponent implements OnInit {
   registerUsers() {
     console.warn(this.profileForm.value);
     this.authService.registerUsers(this.profileForm.value).subscribe(res => {
-      console.log(`Users Registered with Value ${this.profileForm.value}`);
+      console.log(`Users Registered with Value ${this.profileForm.value}`, res);
+      const token = res;
+    localStorage.setItem('Kaizen', JSON.stringify(token));
+    this.authService.getToken();
     });
   }
 }

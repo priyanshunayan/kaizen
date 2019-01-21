@@ -3,7 +3,7 @@
     <h2> <a href="#" class="header-link"> Kaizen </a></h2>
   </div>
   <div class="form">
-    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="profileForm" (ngSubmit)="loginUser()">
       <label>
         <span class="width-20"> Email</span>
         <br>
@@ -22,7 +22,7 @@
         Please enter correct password
       </div>
       <br>
-      <button type="submit"  [disabled]="!profileForm.valid" class="btn-signup" mat-raised-button>Login</button>
+      <button type="submit"  [disabled]="!profileForm.valid" class="btn-signup" mat-raised-button >Login</button>
     <button type="button" class="btn-signup" mat-stroked-button [routerLink] = "['']">Back</button>
     </form>
   </div>
