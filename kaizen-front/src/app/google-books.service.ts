@@ -10,5 +10,8 @@ export class GoogleBooksService {
   getBooks(key) {
    return this.http.get(`https://www.googleapis.com/books/v1/volumes?q=${key}`);
   }
+  getSpecificBook(id) {
+    return this.http.get(`https://www.googleapis.com/books/v1/volumes/${id}`);
+  }
 }
 

@@ -1,0 +1,19 @@
+<div class="page">
+<h1>Kaizen</h1>
+<div class="content">
+<div class="center">
+<img src={{bookDetails.imageLinks.thumbnail}} alt="Book thumbnail" class="book-image">
+</div>
+<h3>{{bookDetails.title}}</h3>
+<p>{{bookDetails.subtitle}}</p>
+
+<p>By: {{bookDetails.authors.join(', ')}}</p>
+
+<div innerHTML = "{{bookDetails.description}}">
+</div>
+<button mat-raised-button >To Read</button>
+<button mat-raised-button >Read</button>
+<button mat-raised-button >Favourite</button>
+<button mat-stroked-button class="back" routerLink = "/books">Back</button>
+</div>
+</div>

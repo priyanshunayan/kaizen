@@ -1,0 +1,30 @@
+.page {
+background-color: #181743;
+}
+h1 {
+    color: white;
+    text-align: center;
+}
+
+.book-image {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content {
+    padding: 0 1em;
+    color: white;
+    line-height: 1.6;
+}
+button {
+    margin-right: 1em;
+    margin-bottom: 1em;
+}
+.back {
+    border-color: white;
+}

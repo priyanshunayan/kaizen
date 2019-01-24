@@ -3,18 +3,18 @@
   Kaizen
 </h2>
 </header>
-<form class="example-form">
+<div class="example-form">
   <mat-form-field class="example-full-width">
     <input matInput placeholder="Search Books" id="search-box">
   </mat-form-field>
-
-  <div>
-    <ul *ngFor = 'let books of booksArray'>
-      <li> 
-        <p>{{books.title}}</p>
-        <img *ngIf = "books.imageLinks.smallThumbnail" src="{{books.imageLinks.smallThumbnail}}" alt="">
-        <br>
-        {{books.subtitle}}
-      </li>
-     </ul>
+</div>
+  <div class="books" *ngFor = "let book of booksArray" [routerLink] = "['/book/' + book.id]">
+    <div  *ngIf = "book.volumeInfo.imageLinks">
+      <img src={{book.volumeInfo.imageLinks.thumbnail}} alt="" width="100" height="100" class="book-image">
+    </div>
+    <div  *ngIf = "book.volumeInfo.imageLinks" class="book-info"> 
+      <p class="bold">{{book.volumeInfo.title}}</p>
+      <p *ngIf = "book.volumeInfo.authors">By: {{book.volumeInfo.authors.join(', ')}}</p>
+    </div>
+    <hr>
   </div>

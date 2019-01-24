@@ -8,3 +8,20 @@
       margin-left: 1em;
       color: #181743;
   }
+  .bold {
+      font-weight: bold;
+  }
+  .books {
+      display: flex;
+      align-items: center;
+      width:100%;
+  }
+  .book-image {
+      padding-right: 0.3em;
+      object-fit: contain;
+  }
+  .book-info {
+      width: 80%;
+      margin-right:1em;
+      overflow: hidden;
+  }

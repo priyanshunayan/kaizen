@@ -25,7 +25,7 @@ export class BooksComponent implements AfterViewInit, OnInit {
     const typeahead = fromEvent(searchBox, 'input').pipe(
     map((e: KeyboardEvent) => (<HTMLInputElement>e.target).value),
     filter(text => text.length > 2),
-   debounceTime(1000),
+   debounceTime(500),
    distinctUntilChanged(),
 );
   typeahead.subscribe(data => {
@@ -34,7 +34,7 @@ export class BooksComponent implements AfterViewInit, OnInit {
    this.i = 0;
    if ((<any>res).items) {
     (<any>res).items.forEach(element => {
-      this.booksArray[this.i] = element.volumeInfo;
+      this.booksArray[this.i] = element;
       this.i++;
     });
    }
