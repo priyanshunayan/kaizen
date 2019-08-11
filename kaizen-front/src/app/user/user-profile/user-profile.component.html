@@ -1,6 +1,8 @@
-<div>
-  <h1>Kaizen</h1>
-</div>
+<header class="header">
+  <h2>
+    Kaizen
+  </h2>
+</header>
 <div>
   <mat-tab-group>
     <mat-tab label="Finished Books">
@@ -12,7 +14,8 @@
               <div>
                 <p class="bold" [routerLink]="['/book/' + book.id]">{{book.title}}</p>
                 <p *ngIf="book.authors">By: {{book.authors.join(', ')}}</p>
-                <button mat-raised-button (click) = "addToReadingListFinished($event, book.title)">Add to Readling list</button>
+                <button mat-raised-button (click)="addToReadingListFinished($event, book.title)">Add to Readling
+                  list</button>
               </div>
 
             </div>
@@ -29,7 +32,7 @@
               <div>
                 <p class="bold" [routerLink]="['/book/' + book.id]">{{book.title}}</p>
                 <p *ngIf="book.authors">By: {{book.authors.join(', ')}}</p>
-                <button mat-raised-button (click) = "addToReadingList($event, book.title)">Add to Readling list</button>
+                <button mat-raised-button (click)="addToReadingList($event, book.title)">Add to Readling list</button>
               </div>
 
             </div>
