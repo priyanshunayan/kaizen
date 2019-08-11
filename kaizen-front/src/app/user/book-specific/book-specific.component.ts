@@ -17,8 +17,9 @@ export class BookSpecificComponent implements OnInit {
   getBookDetails() {
     const id = this.route.snapshot.paramMap.get('id');
     this.bookService.getSpecificBook(id).subscribe(res => {
-      // console.log('Book', res);
+      console.log('Book', res);
       this.bookDetails = (<any>res).volumeInfo;
+      this.bookDetails.id = (<any>res).id;
     });
   }
   toread(event) {
@@ -48,8 +49,10 @@ export class BookSpecificComponent implements OnInit {
     const json = JSON.parse(data);
     console.log(json.user);
     const user_id = json.user._id;
+    // this.bookDetails.isFavourite = true;
     this.bookService.favourite(user_id, this.bookDetails).subscribe(res => {
       console.log('Added successfully');
+      this.ngOnInit();
     }, (e) => {
       console.log(e);
     });

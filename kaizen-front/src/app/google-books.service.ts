@@ -31,5 +31,46 @@ export class GoogleBooksService {
       'favourite': book
     });
   }
+  toreadList(userId) {
+    return this.http.get(`http://localhost:3000/toread/${userId}`);
+  }
+  readList(userId) {
+    return this.http.get(`http://localhost:3000/read/${userId}`);
+  }
+  favouriteList(userId) {
+    return this.http.get(`http://localhost:3000/favourite/${userId}`);
+  }
+  removefromread(userId, title) {
+    return this.http.put(`http://localhost:3000/removefromread`, {
+      userId: userId,
+      title: title
+    });
+  }
+  removefromtoread(userId, title) {
+    return this.http.put(`http://localhost:3000/removefromtoread`, {
+      userId: userId,
+      title: title
+    });
+  }
+  removefromfavourite(userId, title) {
+    return this.http.put(`http://localhost:3000/removefromfavourite`, {
+      userId: userId,
+      title: title
+    });
+  }
+  finished(userId, title) {
+    return this.http.put(`http://localhost:3000/finished`, {
+      userId: userId,
+      title: title
+    });
+  }
+  getUser(username) {
+    return this.http.get(`http://localhost:3000/user/users/${username}`);
+  }
+  fav(userId, title) {
+    return this.http.post(`http://localhost:3000/favouritePush`, {
+      userId: userId,
+      title: title
+    });
+  }
 }
-

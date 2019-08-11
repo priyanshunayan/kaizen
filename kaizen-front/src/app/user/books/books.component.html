@@ -1,20 +1,91 @@
 <header class="header">
-<h2>
-  Kaizen
-</h2>
+  <h2>
+    Kaizen
+  </h2>
+  <mat-tab-group>
+    <mat-tab label="Search Books">
+      <div>
+        <p class="desc"> Search Books and add them to your list </p>
+      </div>
+      <div class="example-form">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Search Books" id="search-box">
+        </mat-form-field>
+      </div>
+      <div class="books" *ngFor="let book of booksArray" [routerLink]="['/book/' + book.id]">
+        <div *ngIf="book.volumeInfo.imageLinks">
+          <img src={{book.volumeInfo.imageLinks.thumbnail}} alt="" width="100" height="100" class="book-image">
+        </div>
+        <div *ngIf="book.volumeInfo.imageLinks" class="book-info">
+          <p class="bold" [routerLink]="['/book/' + book.id]">{{book.volumeInfo.title}}</p>
+          <p *ngIf="book.volumeInfo.authors">By: {{book.volumeInfo.authors.join(', ')}}</p>
+        </div>
+        <hr>
+      </div>
+
+
+    </mat-tab>
+    <mat-tab label="To Read">
+      <ul>
+        <li *ngFor='let book of toRead'>
+          <div *ngIf='book' class="list-item">
+            <div *ngIf="book.imageLinks" class="book-info-list">
+              <img src={{book.imageLinks.thumbnail}} alt="" width="100" height="100" class="book-image">
+              <div>
+                <p class="bold" [routerLink]="['/book/' + book.id]">{{book.title}}</p>
+                <p *ngIf="book.authors">By: {{book.authors.join(', ')}}</p>
+                <div class="close">
+                  <button mat-raised-button (click)='finished($event, book.title)'>Finished</button>
+                  <button mat-raised-button (click)='removefromtoread($event, book.title)'>Remove</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </li>
+      </ul>
+    </mat-tab>
+    <mat-tab label="Completed">
+      <ul>
+        <li *ngFor='let book of read'>
+          <div *ngIf='book' class="list-item">
+            <div *ngIf="book.imageLinks" class="book-info-list">
+              <img src={{book.imageLinks.thumbnail}} alt="" width="100" height="100" class="book-image">
+              <div>
+                <p class="bold" [routerLink]="['/book/' + book.id]">{{book.title}}</p>
+                <p *ngIf="book.authors">By: {{book.authors.join(', ')}}</p>
+                <div class="close">
+                  <button mat-raised-button (click)='removefromread($event, book.title)'>Remove</button>
+                  <button mat-icon-button color="warn" aria-label="Example icon-button with a heart icon"
+                    *ngIf='!book.isFavourite'(click) = "isFavourite($event, book.title)">
+                    <mat-icon>favorite</mat-icon>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </li>
+      </ul>
+    </mat-tab>
+    <mat-tab label="Favourites">
+      <ul>
+        <li *ngFor='let book of favourites'>
+          <div *ngIf='book' class="list-item">
+            <div *ngIf="book.imageLinks" class="book-info-list">
+              <img src={{book.imageLinks.thumbnail}} alt="" width="100" height="100" class="book-image">
+              <div>
+                <p class="bold" [routerLink]="['/book/' + book.id]">{{book.title}}</p>
+                <p *ngIf="book.authors">By: {{book.authors.join(', ')}}</p>
+                <div class="close">
+                  <button mat-raised-button (click)='removefromfavourite($event, book.title)'>Remove</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </li>
+      </ul>
+    </mat-tab>
+  </mat-tab-group>
 </header>
-<div class="example-form">
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="Search Books" id="search-box">
-  </mat-form-field>
-</div>
-  <div class="books" *ngFor = "let book of booksArray" [routerLink] = "['/book/' + book.id]">
-    <div  *ngIf = "book.volumeInfo.imageLinks">
-      <img src={{book.volumeInfo.imageLinks.thumbnail}} alt="" width="100" height="100" class="book-image">
-    </div>
-    <div  *ngIf = "book.volumeInfo.imageLinks" class="book-info"> 
-      <p class="bold">{{book.volumeInfo.title}}</p>
-      <p *ngIf = "book.volumeInfo.authors">By: {{book.volumeInfo.authors.join(', ')}}</p>
-    </div>
-    <hr>
-  </div>
