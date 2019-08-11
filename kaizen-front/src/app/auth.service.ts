@@ -9,10 +9,10 @@ export class AuthService {
   httpOptions;
   constructor(private http: HttpClient) { }
   registerUsers(user) {
-    return this.http.post('http://localhost:3000/user/signup', user);
+    return this.http.post(' https://read-book-netlify.herokuapp.com/user/signup', user);
   }
   loginUsers(user) {
-    return this.http.post('http://localhost:3000/user/login', user, this.httpOptions);
+    return this.http.post(' https://read-book-netlify.herokuapp.com/user/login', user, this.httpOptions);
   }
   getToken() {
     this.token = JSON.parse(localStorage.getItem('Kaizen'));

@@ -14,66 +14,66 @@ export class GoogleBooksService {
     return this.http.get(`https://www.googleapis.com/books/v1/volumes/${id}`);
   }
   toRead(userId, book) {
-    return this.http.post(`http://localhost:3000/toread`, {
+    return this.http.post(` https://read-book-netlify.herokuapp.com/toread`, {
       'userId': userId,
       'toread': book
     });
   }
   read(userId, book) {
-    return this.http.post(`http://localhost:3000/read`, {
+    return this.http.post(` https://read-book-netlify.herokuapp.com/read`, {
       'userId': userId,
       'read': book
     });
   }
   favourite(userId, book) {
-    return this.http.post(`http://localhost:3000/favourite`, {
+    return this.http.post(` https://read-book-netlify.herokuapp.com/favourite`, {
       'userId': userId,
       'favourite': book
     });
   }
   toreadList(userId) {
-    return this.http.get(`http://localhost:3000/toread/${userId}`);
+    return this.http.get(` https://read-book-netlify.herokuapp.com/toread/${userId}`);
   }
   readList(userId) {
-    return this.http.get(`http://localhost:3000/read/${userId}`);
+    return this.http.get(` https://read-book-netlify.herokuapp.com/read/${userId}`);
   }
   favouriteList(userId) {
-    return this.http.get(`http://localhost:3000/favourite/${userId}`);
+    return this.http.get(` https://read-book-netlify.herokuapp.com/favourite/${userId}`);
   }
   removefromread(userId, title) {
-    return this.http.put(`http://localhost:3000/removefromread`, {
+    return this.http.put(` https://read-book-netlify.herokuapp.com/removefromread`, {
       userId: userId,
       title: title
     });
   }
   removefromtoread(userId, title) {
-    return this.http.put(`http://localhost:3000/removefromtoread`, {
+    return this.http.put(` https://read-book-netlify.herokuapp.com/removefromtoread`, {
       userId: userId,
       title: title
     });
   }
   removefromfavourite(userId, title) {
-    return this.http.put(`http://localhost:3000/removefromfavourite`, {
+    return this.http.put(` https://read-book-netlify.herokuapp.com/removefromfavourite`, {
       userId: userId,
       title: title
     });
   }
   finished(userId, title) {
-    return this.http.put(`http://localhost:3000/finished`, {
+    return this.http.put(` https://read-book-netlify.herokuapp.com/finished`, {
       userId: userId,
       title: title
     });
   }
   getUser(username) {
-    return this.http.get(`http://localhost:3000/user/users/${username}`);
+    return this.http.get(` https://read-book-netlify.herokuapp.com/user/users/${username}`);
   }
   fav(userId, title) {
-    return this.http.post(`http://localhost:3000/favouritePush`, {
+    return this.http.post(` https://read-book-netlify.herokuapp.com/favouritePush`, {
       userId: userId,
       title: title
     });
   }
   userData(username) {
-    return this.http.get(`http://localhost:3000/user/${username}`);
+    return this.http.get(` https://read-book-netlify.herokuapp.com/user/${username}`);
   }
 }
