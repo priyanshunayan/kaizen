@@ -73,4 +73,7 @@ export class GoogleBooksService {
       title: title
     });
   }
+  userData(username) {
+    return this.http.get(`http://localhost:3000/user/${username}`);
+  }
 }

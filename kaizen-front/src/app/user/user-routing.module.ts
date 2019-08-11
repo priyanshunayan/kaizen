@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { BooksComponent } from './books/books.component';
 import { AuthGuard } from '../auth-guard.service';
 import { BookSpecificComponent } from './book-specific/book-specific.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [{
   path: 'books',
@@ -12,6 +13,11 @@ const routes: Routes = [{
 {
   path: 'book/:id',
   component: BookSpecificComponent,
+  canActivate: [AuthGuard]
+},
+{
+  path: ':username',
+  component: UserProfileComponent,
   canActivate: [AuthGuard]
 }];
 

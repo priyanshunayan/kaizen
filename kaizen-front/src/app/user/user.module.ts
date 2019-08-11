@@ -9,6 +9,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 
 import { BookSpecificComponent } from './book-specific/book-specific.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -19,6 +20,6 @@ import { BookSpecificComponent } from './book-specific/book-specific.component';
     MatTabsModule,
     MatIconModule
   ],
-  declarations: [BooksComponent, BookSpecificComponent]
+  declarations: [BooksComponent, BookSpecificComponent, UserProfileComponent]
 })
 export class UserModule { }

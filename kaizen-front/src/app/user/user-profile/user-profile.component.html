@@ -1,0 +1,41 @@
+<div>
+  <h1>Kaizen</h1>
+</div>
+<div>
+  <mat-tab-group>
+    <mat-tab label="Finished Books">
+      <ul>
+        <li *ngFor='let book of read'>
+          <div *ngIf='book' class="list-item">
+            <div *ngIf="book.imageLinks" class="book-info-list">
+              <img src={{book.imageLinks.thumbnail}} alt="" width="100" height="100" class="book-image">
+              <div>
+                <p class="bold" [routerLink]="['/book/' + book.id]">{{book.title}}</p>
+                <p *ngIf="book.authors">By: {{book.authors.join(', ')}}</p>
+                <button mat-raised-button (click) = "addToReadingListFinished($event, book.title)">Add to Readling list</button>
+              </div>
+
+            </div>
+          </div>
+        </li>
+      </ul>
+    </mat-tab>
+    <mat-tab label="Favourite Books">
+      <ul>
+        <li *ngFor='let book of favourites'>
+          <div *ngIf='book' class="list-item">
+            <div *ngIf="book.imageLinks" class="book-info-list">
+              <img src={{book.imageLinks.thumbnail}} alt="" width="100" height="100" class="book-image">
+              <div>
+                <p class="bold" [routerLink]="['/book/' + book.id]">{{book.title}}</p>
+                <p *ngIf="book.authors">By: {{book.authors.join(', ')}}</p>
+                <button mat-raised-button (click) = "addToReadingList($event, book.title)">Add to Readling list</button>
+              </div>
+
+            </div>
+          </div>
+        </li>
+      </ul>
+    </mat-tab>
+  </mat-tab-group>
+</div>
